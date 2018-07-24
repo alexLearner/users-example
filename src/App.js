@@ -4,6 +4,7 @@ import 'antd/lib/button/style/index.css';
 import logo from './logo.svg';
 import RouteConfigExample from './routes';
 import './App.css';
+import "./modules/api"
 
 class App extends Component {
   render() {
