@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Button from 'antd/lib/button';
 import 'antd/lib/button/style/index.css';
 import logo from './logo.svg';
+import RouteConfigExample from './routes';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <RouteConfigExample />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
