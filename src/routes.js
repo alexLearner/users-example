@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-const Main = () => <h2>Main</h2>;
+import Main from "./layouts/Main";
 
 const Sandwiches = () => <h2>Sandwiches</h2>;
 
@@ -25,6 +24,10 @@ const Bus = () => <h3>Bus</h3>;
 const Cart = () => <h3>Cart</h3>;
 
 const routes = [
+  {
+    path: "/",
+    component: Main
+  },
   {
     path: "/sandwiches",
     component: Sandwiches
@@ -69,6 +72,7 @@ const RouteConfigExample = () => (
 
       {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
     </div>
+
   </Router>
 );
 

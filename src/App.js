@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
-import 'antd/lib/button/style/index.css';
+// import Button from 'antd/lib/button';
+// import 'antd/lib/button/style/index.css';
 import logo from './logo.svg';
 import RouteConfigExample from './routes';
 import './App.css';
@@ -19,7 +19,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <Button size="large">Test antd</Button>
+        {/*<Button size="large">Test antd</Button>*/}
       </div>
     );
   }

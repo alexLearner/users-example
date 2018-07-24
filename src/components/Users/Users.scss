@@ -1,0 +1,14 @@
+.users {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	max-width: 800px;
+	flex-wrap: wrap;
+	padding: 20px;
+
+	&_item {
+		width: 240px;
+		margin: 10px 5px;
+	}
+}
+

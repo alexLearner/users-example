@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import user from './user';
+import users from './users';
 
 export default function createRootReducer() {
   return combineReducers({
-    user,
+    users,
   });
 }
