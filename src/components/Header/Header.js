@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Header.css';
-import Card from "antd/lib/card";
-// import Layout from "antd/lib/layout";
-import Menu from "antd/lib/menu";
-// import "antd/lib/menu/style/index.css";
-// import Button from 'antd/lib/button';
-// import 'antd/lib/button/style/index.css';
-
-// const { Content, Footer } = Layout;
 
 const Header = () => (
   <header className="header">
@@ -23,8 +15,5 @@ const Header = () => (
     </div>
   </header>
 );
-
-
-
 
 export default Header;
