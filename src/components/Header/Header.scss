@@ -1,0 +1,24 @@
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &_nav_item {
+    margin-left: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

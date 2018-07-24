@@ -2,9 +2,10 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	max-width: 800px;
+	//max-width: 800px;
 	flex-wrap: wrap;
-	padding: 20px;
+	padding: 20px 0;
+	//padding: 20px;
 
 	&_item {
 		width: 240px;

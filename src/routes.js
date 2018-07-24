@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Main from "./layouts/Main";
+import Header from "./components/Header";
+import "antd/lib/layout/style/index.css";
 
 const Sandwiches = () => <h2>Sandwiches</h2>;
 
@@ -58,9 +60,13 @@ const RouteWithSubRoutes = route => (
   />
 );
 
-const RouteConfigExample = () => (
+
+
+const RouterContainer = () => (
   <Router>
     <div>
+      <Header />
+
       <ul>
         <li>
           <Link to="/tacos">Tacos</Link>
@@ -70,10 +76,13 @@ const RouteConfigExample = () => (
         </li>
       </ul>
 
-      {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+      <div className="container">
+        {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+      </div>
+
     </div>
 
   </Router>
 );
 
-export default RouteConfigExample;
+export default RouterContainer;
