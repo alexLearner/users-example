@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Main from "./layouts/Main";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "antd/lib/layout/style/index.css";
 
 const Sandwiches = () => <h2>Sandwiches</h2>;
@@ -79,6 +80,8 @@ const RouterContainer = () => (
       <div className="container">
         {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
       </div>
+
+      <Footer />
 
     </div>
 
