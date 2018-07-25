@@ -7,13 +7,7 @@ import Button from "antd/lib/button";
 import message from 'antd/lib/message';
 import "./Fileload.css";
 
-const
-  STATUS_ERROR = 1,
-  STATUS_SUCCESS = 2;
-
 class Fileload extends Component {
-  state = { status: 0 };
-
   onChange = (event) => {
     const
       file = event.target.files[0],
@@ -30,10 +24,10 @@ class Fileload extends Component {
         if (isValid) {
           message.success(successMessage);
           onChange(json);
-        }
-        else {
+        } else {
           message.error(errorMessage);
         }
+
       } catch (error) {
         console.error(error);
         message.error(errorMessage);
@@ -44,9 +38,7 @@ class Fileload extends Component {
   };
 
   render() {
-    const
-      { status } = this.state,
-      { text, errorMessage, successMessage } = this.props;
+    const { text } = this.props;
 
     return (
       <div>
@@ -61,21 +53,7 @@ class Fileload extends Component {
           <Icon type="upload" />
           { text }
         </Button>
-
-        {
-          status === STATUS_ERROR && (
-            <div className="fileload_error">{ errorMessage }</div>
-          )
-        }
-
-        {
-          status === STATUS_SUCCESS && (
-            <div className="fileload_success">{ successMessage }</div>
-          )
-        }
-
       </div>
-
     );
   }
 }

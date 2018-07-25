@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "antd/lib/card";
-import "antd/lib/card/style/index.css";
 import Button from 'antd/lib/button';
-import 'antd/lib/button/style/index.css';
 import { Link } from 'react-router-dom';
 
 const User = ({ id, avatar, first_name, last_name, removeUser }) => (

@@ -2,8 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createRootReducer from '../reducers';
 import createLogger from './logger';
-
-const __DEV__ = process.env.NODE_ENV !== 'production';
+import { __DEV__ } from "../config";
 
 export default function configureStore(initialState) {
   const middleware = [thunk];

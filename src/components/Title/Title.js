@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import "./Title.css";
 
 const Title = ({ children, className }) => (
-  <div
-    className={`title ${className}`}
-  >
+  <div className={`title ${className}`}>
     {children}
   </div>
 );

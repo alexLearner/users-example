@@ -87,7 +87,7 @@ class UploadAvatar extends Component {
       </Upload>
     );
   }
-};
+}
 
 UploadAvatar.propTypes = {
   onChange: PropTypes.func.isRequired,

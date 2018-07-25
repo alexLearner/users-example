@@ -2,7 +2,6 @@ import forEach from "lodash/forEach";
 import { PROJECT_URL } from "../../config";
 
 class API {
-
   fetch = (url, params) => {
     return fetch(PROJECT_URL + url, {
       ...params,

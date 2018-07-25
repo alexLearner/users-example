@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -75,6 +76,10 @@ class RouterLayout extends Component {
   }
 }
 
+RouterLayout.propTypes = {
+  fetched: PropTypes.bool,
+  getUsers: PropTypes.func.isRequired,
+};
 
 export default connect(
   state => ({

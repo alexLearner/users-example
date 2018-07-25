@@ -171,10 +171,8 @@ class Create extends Component {
             {
               isEdit ? "Edit" : "Create new user"
             }
-
           </Button>
         </FormItem>
-
       </Form>
     )
   }

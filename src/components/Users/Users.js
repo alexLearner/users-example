@@ -15,10 +15,11 @@ const Users = ({ data, removeUser }) => {
   if (!(data && data.length)) {
     return (
       <div className="users users_empty">
-        <p>There are no users here yet <Icon type="frown"/></p>
-        <Button
-          onClick={updateEmptyContent}
-        >
+        <p>
+          There are no users here yet <Icon type="frown"/>
+        </p>
+
+        <Button onClick={updateEmptyContent}>
           Clear your local storage for update users
         </Button>
       </div>
@@ -29,7 +30,11 @@ const Users = ({ data, removeUser }) => {
     <div className="users">
       {
         data.map(user => (
-          <User key={user.id} removeUser={removeUser} {...user} />
+          <User
+            key={user.id}
+            removeUser={removeUser}
+            {...user}
+          />
         ))
       }
     </div>

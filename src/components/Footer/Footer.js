@@ -4,14 +4,17 @@ import 'antd/lib/style/index.css';
 import './Footer.css';
 
 const Footer = () => (
-  <header className="footer">
+  <footer className="footer">
     <div className="container footer_container">
-      <a href="https://github.com/alexLearner/users-example" className="footer_link">
+      <a
+        href="https://github.com/alexLearner/users-example"
+        className="footer_link"
+      >
         <Icon type="github" className="footer_icon" />
-        GitHub link
+        GitHub source
       </a>
     </div>
-  </header>
+  </footer>
 );
 
 export default Footer;
