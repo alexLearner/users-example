@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import { Provider } from 'react-redux'
+import App from './App';
 import configureStore from "./store/configureStore";
 import localStore from "./modules/localStore";
+import './index.css';
 
 const initialState = {};
 const store = configureStore(initialState);

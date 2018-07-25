@@ -6,6 +6,7 @@ const LINKS = [
   {
     to: "/",
     text: "Users",
+    exact: true,
   },
   {
     to: "/create",
@@ -30,6 +31,7 @@ const Header = () => (
               activeClassName="active"
               key={link.to}
               to={link.to}
+              exact={link.exact}
             >
               {link.text}
             </NavLink>
