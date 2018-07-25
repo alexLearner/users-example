@@ -8,6 +8,7 @@ import { setUsers } from "../../actions/users";
 import Title from "../../components/Title";
 import Fileload from "../../components/Fileload";
 import "./Upload.css";
+import {ROOT} from "../../config";
 
 const UPLOAD_REDIRECT_DELAY = 1500;
 const JSON_FORMAT_STRING = `[
@@ -26,7 +27,7 @@ class Upload extends Component {
 
     setUsers(data);
 
-    setTimeout(() => history.push("/"), UPLOAD_REDIRECT_DELAY);
+    setTimeout(() => history.push(ROOT + "/"), UPLOAD_REDIRECT_DELAY);
   };
 
   render() {

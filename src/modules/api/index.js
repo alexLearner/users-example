@@ -1,9 +1,9 @@
 import forEach from "lodash/forEach";
-import { PROJECT_URL } from "../../config";
+import { ROOT } from "../../config";
 
 class API {
   fetch = (url, params) => {
-    return fetch(PROJECT_URL + url, {
+    return fetch(ROOT + url, {
       ...params,
       headers: {
         "Content-Type": "application/json; charset=utf-8",

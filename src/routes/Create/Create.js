@@ -13,6 +13,7 @@ import UploadAvatar from "../../components/UploadAvatar";
 import { pushUser, editUser } from "../../actions/users";
 import Title from "../../components/Title";
 import "./Create.css";
+import {ROOT} from "../../config";
 
 const FormItem = Form.Item;
 
@@ -72,7 +73,7 @@ class Create extends Component {
           pushUser(object);
         }
 
-        history.push('/')
+        history.push(ROOT + '/')
       }
     });
   };

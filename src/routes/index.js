@@ -10,7 +10,7 @@ import Create from "./Create";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getUsers } from "../actions/users";
-import { PROJECT_URL } from "../config";
+import { ROOT } from "../config";
 import "./Layout.css";
 
 const routes = [
@@ -36,7 +36,7 @@ const routes = [
 
 const RouteWithSubRoutes = route => (
   <Route
-    path={PROJECT_URL + route.path}
+    path={ROOT + route.path}
     exact={route.exact}
     render={props => (
       <route.component

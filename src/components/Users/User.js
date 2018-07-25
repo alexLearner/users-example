@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Card from "antd/lib/card";
 import Button from 'antd/lib/button';
 import { Link } from 'react-router-dom';
+import {ROOT} from "../../config";
 
 const User = ({ id, avatar, first_name, last_name, removeUser }) => (
   <Card
@@ -13,7 +14,7 @@ const User = ({ id, avatar, first_name, last_name, removeUser }) => (
     <div className="users_item_name">{first_name} {last_name}</div>
 
     <div className="users_item_buttons">
-      <Link to={`/edit/${id}`}>
+      <Link to={`${ROOT}/edit/${id}`}>
         <Button
           className="users_item_button"
           type="dashed"
