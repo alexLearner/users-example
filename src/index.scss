@@ -15,8 +15,21 @@ body {
   font-family: sans-serif;
 }
 
+code {
+  border: none;
+  background: #f2f4f5;
+  margin: 0;
+  font-size: 13px;
+  color: #314659;
+  overflow: auto;
+  text-align: left;
+  display: block;
+  padding: 12px 20px;
+}
+
 .container {
-  max-width: 900px;
   margin: 0 auto;
   padding: 0 40px;
+  width: 100%;
+  max-width: 900px;
 }

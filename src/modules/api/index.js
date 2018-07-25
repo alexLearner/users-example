@@ -1,11 +1,10 @@
 import forEach from "lodash/forEach";
+import { PROJECT_URL } from "../../config";
 
 class API {
-  // URL = __DEV__ ? "" : "/users-example";
-  URL = "";
 
   fetch = (url, params) => {
-    return fetch(this.URL + url, {
+    return fetch(PROJECT_URL + url, {
       ...params,
       headers: {
         "Content-Type": "application/json; charset=utf-8",

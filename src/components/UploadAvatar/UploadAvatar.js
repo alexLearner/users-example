@@ -60,7 +60,9 @@ class UploadAvatar extends Component {
   };
 
   render() {
-    const { imageURL, isLoading } = this.state;
+    const
+      { imageURL, isLoading } = this.state,
+      { defaultImage } = this.props;
 
     return (
       <Upload
@@ -74,8 +76,8 @@ class UploadAvatar extends Component {
         onChange={this.handleChange}
       >
         {
-          imageURL
-            ? <img src={imageURL} alt="avatar" />
+          imageURL || defaultImage
+            ? <img src={imageURL || defaultImage} alt="avatar" />
             : (
               <div>
                 <Icon type={isLoading ? 'loading' : 'plus'} />
@@ -90,6 +92,7 @@ class UploadAvatar extends Component {
 
 UploadAvatar.propTypes = {
   onChange: PropTypes.func.isRequired,
-}
+  defaultImage: PropTypes.string,
+};
 
 export default UploadAvatar;

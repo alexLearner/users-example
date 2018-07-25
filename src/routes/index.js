@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import Main from "./layouts/Main";
-import Create from "./layouts/Create";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import { getUsers } from "./actions/users";
+import Main from "./Main";
+import Upload from "./Upload";
+import Create from "./Create";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { getUsers } from "../actions/users";
+import { PROJECT_URL } from "../config";
+import "./Layout.css";
 
 const routes = [
   {
@@ -19,14 +22,27 @@ const routes = [
     path: "/create",
     component: Create
   },
+  {
+    path: "/upload",
+    component: Upload,
+  },
+  {
+    path: "/edit/:id",
+    component: Create,
+    isEdit: true,
+  },
 ];
 
 const RouteWithSubRoutes = route => (
   <Route
-    path={route.path}
+    path={PROJECT_URL + route.path}
     exact={route.exact}
     render={props => (
-      <route.component {...props} routes={route.routes} />
+      <route.component
+        routes={route.routes}
+        isEdit={route.isEdit}
+        {...props}
+      />
     )}
   />
 );

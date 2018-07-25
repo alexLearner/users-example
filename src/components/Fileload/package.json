@@ -1,0 +1,6 @@
+{
+  "name": "Fileload",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Fileload.js"
+}

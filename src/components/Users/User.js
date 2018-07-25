@@ -4,6 +4,7 @@ import Card from "antd/lib/card";
 import "antd/lib/card/style/index.css";
 import Button from 'antd/lib/button';
 import 'antd/lib/button/style/index.css';
+import { Link } from 'react-router-dom';
 
 const User = ({ id, avatar, first_name, last_name, removeUser }) => (
   <Card
@@ -14,12 +15,14 @@ const User = ({ id, avatar, first_name, last_name, removeUser }) => (
     <div className="users_item_name">{first_name}, {last_name}</div>
 
     <div className="users_item_buttons">
-      <Button
-        className="users_item_button"
-        type="dashed"
-      >
-        Edit
-      </Button>
+      <Link to={`/edit/${id}`}>
+        <Button
+          className="users_item_button"
+          type="dashed"
+        >
+          Edit
+        </Button>
+      </Link>
 
       <Button
         className="users_item_button"

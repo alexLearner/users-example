@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import RouterContainer from './routes';
+import RouterContainer from './routes/index';
 import './App.css';
+import './antd.css';
 import "./modules/api"
 
 class App extends Component {

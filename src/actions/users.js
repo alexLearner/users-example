@@ -3,15 +3,15 @@ import UserClass from "../modules/api/Users";
 
 const UsersAPI = new UserClass();
 
+export const setUsers = payload => ({
+  type: c.USERS_SET_DATA,
+  payload
+});
+
 export const getUsers = () => dispatch => {
   UsersAPI
     .getUsers()
-    .then(payload => {
-      dispatch({
-        type: c.USERS_GET_DATA,
-        payload
-      })
-    })
+    .then(res => dispatch(setUsers(res)))
 };
 
 export const pushUser = payload => ({
@@ -21,5 +21,10 @@ export const pushUser = payload => ({
 
 export const removeUser = payload => ({
   type: c.USERS_REMOVE,
+  payload
+});
+
+export const editUser = payload => ({
+  type: c.USERS_EDIT,
   payload
 });

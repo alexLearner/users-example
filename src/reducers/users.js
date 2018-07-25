@@ -7,7 +7,7 @@ const initialState = {
 
 export default function users(state = initialState, action) {
   switch (action.type) {
-    case c.USERS_GET_DATA: {
+    case c.USERS_SET_DATA: {
       return {
         ...state,
         fetched: true,
@@ -31,6 +31,18 @@ export default function users(state = initialState, action) {
         data: state.data.filter(
           user => user.id !== action.payload
         )
+      }
+    }
+
+    case c.USERS_EDIT: {
+      return {
+        ...state,
+        data: state.data.map(user => {
+          if (user.id === +action.payload.id) {
+            return {...user, ...action.payload.data}
+          }
+          return user;
+        })
       }
     }
 
