@@ -1,6 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import './Header.css';
+import { NavLink, Link } from "react-router-dom";
+import "./Header.css";
+
+const LINKS = [
+  {
+    to: "/",
+    text: "Users",
+  },
+  {
+    to: "/create",
+    text: "Create profile",
+  },
+  {
+    to: "/upload",
+    text: "Upload users",
+  },
+];
 
 const Header = () => (
   <header className="header">
@@ -8,9 +23,19 @@ const Header = () => (
       <Link className="header_logo" to="/">UList</Link>
 
       <nav className="header_nav">
-        <Link className="header_nav_item" to="/">Users</Link>
-        <Link className="header_nav_item" to="/create">Create profile</Link>
-        <Link className="header_nav_item" to="/upload">Upload</Link>
+        {
+          LINKS.map(link => (
+            <NavLink
+              className="header_nav_item"
+              activeStyle="active"
+              key={link.to}
+              to={link.to}
+            >
+              {link.text}
+            </NavLink>
+          ))
+        }
+
       </nav>
     </div>
   </header>

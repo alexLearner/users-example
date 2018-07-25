@@ -166,7 +166,7 @@ class Create extends Component {
             className="create_button"
             disabled={hasErrors(getFieldsError())}
           >
-            Create
+            Create new user
           </Button>
         </FormItem>
 

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Upload from 'antd/lib/upload';
 import Icon from 'antd/lib/icon';
 import message from 'antd/lib/message';
-import 'antd/lib/upload/style/index.css';
 import './UploadAvatar.css';
 
 class UploadAvatar extends Component {
