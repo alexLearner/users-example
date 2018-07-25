@@ -1,8 +1,11 @@
 import * as c from "../constants";
+import localStore from "../modules/localStore";
+
+const storageUsers = localStore.get("users");
 
 const initialState = {
-  fetched: false,
-  data: null,
+  fetched: !!storageUsers,
+  data: storageUsers,
 };
 
 export default function users(state = initialState, action) {

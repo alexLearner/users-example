@@ -49,7 +49,9 @@ const RouteWithSubRoutes = route => (
 
 class RouterLayout extends Component {
   componentDidMount() {
-    this.props.getUsers();
+    if (!this.props.fetched) {
+      this.props.getUsers();
+    }
   }
 
   render() {
@@ -75,7 +77,9 @@ class RouterLayout extends Component {
 
 
 export default connect(
-  null,
+  state => ({
+    fetched: state.users.fetched,
+  }),
   dispatch => ({
     getUsers: bindActionCreators(getUsers, dispatch)
   }),
