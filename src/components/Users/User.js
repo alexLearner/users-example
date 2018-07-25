@@ -12,7 +12,7 @@ const User = ({ id, avatar, first_name, last_name, removeUser }) => (
     cover={<img src={avatar} alt="" />}
     hoverable
   >
-    <div className="users_item_name">{first_name}, {last_name}</div>
+    <div className="users_item_name">{first_name} {last_name}</div>
 
     <div className="users_item_buttons">
       <Link to={`/edit/${id}`}>

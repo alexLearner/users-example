@@ -38,7 +38,7 @@ export default function users(state = initialState, action) {
       return {
         ...state,
         data: state.data.map(user => {
-          if (user.id === +action.payload.id) {
+          if (+user.id === +action.payload.id) {
             return {...user, ...action.payload.data}
           }
           return user;

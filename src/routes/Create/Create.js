@@ -19,13 +19,13 @@ const FormItem = Form.Item;
 const FIELDS = {
   firstName: {
     rules: [{ required: true, message: "Please input your first name!" }],
-    prefix: <Icon type="user" />,
+    prefix: <Icon type="smile-o" />,
     placeholder: "First name",
   },
 
   lastName: {
     rules: [{ required: true, message: "Please input your second name!" }],
-    prefix: <Icon type="user" />,
+    prefix: <Icon type="frown-o" />,
     placeholder: "Second name"
   }
 };
@@ -89,7 +89,7 @@ class Create extends Component {
         getFieldDecorator,
         getFieldsError,
         getFieldError,
-        isFieldTouched
+        isFieldTouched,
       } = form,
 
       firstNameError = isFieldTouched('firstName') && getFieldError('firstName'),
@@ -112,6 +112,7 @@ class Create extends Component {
         </Title>
 
         <FormItem
+          className="create_field"
           validateStatus={firstNameError ? 'error' : ''}
           help={firstNameError || ''}
         >
@@ -132,6 +133,7 @@ class Create extends Component {
         </FormItem>
 
         <FormItem
+          className="create_field"
           validateStatus={lastNameError ? 'error' : ''}
           help={lastNameError || ''}
         >
@@ -144,7 +146,6 @@ class Create extends Component {
               }
             )(
               <Input
-                value={defaultValues.last_name}
                 prefix={FIELDS.lastName.prefix}
                 placeholder={FIELDS.lastName.placeholder}
               />
@@ -152,7 +153,7 @@ class Create extends Component {
           }
         </FormItem>
 
-        <FormItem>
+        <FormItem className="create_field">
           <UploadAvatar
             onChange={this.uploadImage}
             defaultImage={defaultValues.avatar}
@@ -164,9 +165,13 @@ class Create extends Component {
             type="primary"
             htmlType="submit"
             className="create_button"
+            size="large"
             disabled={hasErrors(getFieldsError())}
           >
-            Create new user
+            {
+              isEdit ? "Edit" : "Create new user"
+            }
+
           </Button>
         </FormItem>
 

@@ -27,7 +27,7 @@ const Header = () => (
           LINKS.map(link => (
             <NavLink
               className="header_nav_item"
-              activeStyle="active"
+              activeClassName="active"
               key={link.to}
               to={link.to}
             >

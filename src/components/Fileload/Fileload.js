@@ -4,6 +4,7 @@ import isArray from "lodash/isArray"
 import isObject from "lodash/isObject"
 import Icon from "antd/lib/icon";
 import Button from "antd/lib/button";
+import message from 'antd/lib/message';
 import "./Fileload.css";
 
 const
@@ -17,7 +18,7 @@ class Fileload extends Component {
     const
       file = event.target.files[0],
       reader = new FileReader(),
-      { onChange } = this.props;
+      { onChange, errorMessage, successMessage } = this.props;
 
     reader.onload = event => {
       try {
@@ -26,16 +27,16 @@ class Fileload extends Component {
           json = result && JSON.parse(result),
           isValid = json && isArray(json) && isObject(json[0]);
 
-        this.setState({
-          status: isValid ? STATUS_SUCCESS : STATUS_ERROR
-        });
-
         if (isValid) {
+          message.success(successMessage);
           onChange(json);
+        }
+        else {
+          message.error(errorMessage);
         }
       } catch (error) {
         console.error(error);
-        this.setState({ status: STATUS_ERROR });
+        message.error(errorMessage);
       }
     };
 

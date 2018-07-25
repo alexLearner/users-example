@@ -24,7 +24,7 @@ export const removeUser = payload => ({
   payload
 });
 
-export const editUser = payload => ({
+export const editUser = (id, data) => ({
   type: c.USERS_EDIT,
-  payload
+  payload: { id, data }
 });

@@ -79,7 +79,7 @@ class UploadAvatar extends Component {
             ? <img src={imageURL || defaultImage} alt="avatar" />
             : (
               <div>
-                <Icon type={isLoading ? 'loading' : 'plus'} />
+                <Icon type={isLoading ? 'loading' : 'plus-circle-o'} />
                 <div className="ant-upload-text">Upload</div>
               </div>
             )
