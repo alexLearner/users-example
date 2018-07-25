@@ -13,3 +13,8 @@ export const getUsers = () => dispatch => {
       })
     })
 };
+
+export const pushUser = payload => ({
+  type: c.USERS_PUSH,
+  payload
+});

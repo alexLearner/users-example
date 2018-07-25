@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => (
   <header className="header">
     <div className="container header_container">
-      <div className="header_logo">UList</div>
+      <Link className="header_logo" to="/">UList</Link>
 
       <nav className="header_nav">
         <Link className="header_nav_item" to="/">Users</Link>

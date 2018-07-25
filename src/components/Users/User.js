@@ -23,12 +23,6 @@ const User = ({ id, avatar, first_name, last_name, remove }) => (
       </Button>
     </div>
   </Card>
-
-  // <div className="user">
-  //   <img src={avatar} alt="" />
-  //   <div>{first_name}, {last_name}</div>
-  //   <div>Test</div>
-  // </div>
 );
 
 User.defaultProps = {

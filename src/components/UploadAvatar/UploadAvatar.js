@@ -4,10 +4,12 @@ import Upload from 'antd/lib/upload';
 import Icon from 'antd/lib/icon';
 import message from 'antd/lib/message';
 import 'antd/lib/upload/style/index.css';
+import './UploadAvatar.css';
 
 class UploadAvatar extends Component {
   state = {
     isLoading: false,
+    imageURL: null,
   };
 
   action = null; // string or function for request url;
@@ -51,6 +53,8 @@ class UploadAvatar extends Component {
             loading: false,
           });
 
+          console.log("ON CHANG");
+
           onChange(imageURL)
         }
       );
@@ -58,13 +62,13 @@ class UploadAvatar extends Component {
   };
 
   render() {
-    const { imageUrl, isLoading } = this.state;
+    const { imageURL, isLoading } = this.state;
 
     return (
       <Upload
         name="avatar"
         listType="picture-card"
-        className="avatar-uploader"
+        className="avatar-uploader uploader"
         showUploadList={false}
         action={this.action}
         customRequest={this.customRequest}
@@ -72,8 +76,8 @@ class UploadAvatar extends Component {
         onChange={this.handleChange}
       >
         {
-          imageUrl
-            ? <img src={imageUrl} alt="avatar" />
+          imageURL
+            ? <img src={imageURL} alt="avatar" />
             : (
               <div>
                 <Icon type={isLoading ? 'loading' : 'plus'} />

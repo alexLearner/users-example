@@ -1,0 +1,12 @@
+.create {
+  margin: 40px auto 20px;
+  max-width: 400px;
+
+  &_title {
+    margin-bottom: 20px;
+  }
+
+  &_button {
+    min-width: 120px;
+  }
+}

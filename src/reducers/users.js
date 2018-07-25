@@ -14,6 +14,15 @@ export default function users(state = initialState, action) {
         data: action.payload,
       }
     }
+    case c.USERS_PUSH: {
+      return {
+        ...state,
+        data:
+          state.data
+            ? [...state.data, action.payload]
+            : [action.payload],
+      }
+    }
 
     default:
       return state;
