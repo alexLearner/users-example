@@ -18,3 +18,8 @@ export const pushUser = payload => ({
   type: c.USERS_PUSH,
   payload
 });
+
+export const removeUser = payload => ({
+  type: c.USERS_REMOVE,
+  payload
+});

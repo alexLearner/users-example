@@ -14,6 +14,7 @@ export default function users(state = initialState, action) {
         data: action.payload,
       }
     }
+
     case c.USERS_PUSH: {
       return {
         ...state,
@@ -21,6 +22,15 @@ export default function users(state = initialState, action) {
           state.data
             ? [...state.data, action.payload]
             : [action.payload],
+      }
+    }
+
+    case c.USERS_REMOVE: {
+      return {
+        ...state,
+        data: state.data.filter(
+          user => user.id !== action.payload
+        )
       }
     }
 

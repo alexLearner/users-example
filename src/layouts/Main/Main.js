@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import Users from "../../components/Users";
+import { removeUser } from "../../actions/users";
 
 class Main extends Component {
   render() {
-    const { fetched, data } = this.props;
+    const { fetched, data, removeUser } = this.props;
 
     if (!fetched) {
       return <div>Load...</div>
@@ -13,7 +15,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Users data={data} />
+        <Users data={data} removeUser={removeUser} />
       </div>
     )
   }
@@ -29,4 +31,7 @@ export default connect(
     data: state.users.data,
     fetched: state.users.fetched,
   }),
+  dispatch => ({
+    removeUser: bindActionCreators(removeUser, dispatch)
+  })
 )(Main);

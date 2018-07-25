@@ -5,7 +5,7 @@ import "antd/lib/card/style/index.css";
 import Button from 'antd/lib/button';
 import 'antd/lib/button/style/index.css';
 
-const User = ({ id, avatar, first_name, last_name, remove }) => (
+const User = ({ id, avatar, first_name, last_name, removeUser }) => (
   <Card
     className="users_item"
     cover={<img src={avatar} alt="" />}
@@ -23,7 +23,7 @@ const User = ({ id, avatar, first_name, last_name, remove }) => (
 
       <Button
         className="users_item_button"
-        onClick={() => remove(id)}
+        onClick={() => removeUser(id)}
         type="danger"
       >
         Delete
@@ -39,7 +39,7 @@ User.defaultProps = {
 User.propTypes = {
   first_name: PropTypes.string,
   last_name: PropTypes.string,
-  remove: PropTypes.func.isRequired,
+  removeUser: PropTypes.func.isRequired,
 };
 
 export default User;
