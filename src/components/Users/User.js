@@ -11,11 +11,18 @@ const User = ({ id, avatar, first_name, last_name, remove }) => (
     cover={<img src={avatar} alt="" />}
     hoverable
   >
-    <div>{first_name}, {last_name}</div>
+    <div className="users_item_name">{first_name}, {last_name}</div>
 
-    <div>
-      <Button type="dashed">Edit</Button>
+    <div className="users_item_buttons">
       <Button
+        className="users_item_button"
+        type="dashed"
+      >
+        Edit
+      </Button>
+
+      <Button
+        className="users_item_button"
         onClick={() => remove(id)}
         type="danger"
       >

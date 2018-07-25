@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import Form from 'antd/lib/form';
 import Button from 'antd/lib/button';
@@ -11,7 +12,7 @@ import { bindActionCreators } from "redux";
 import UploadAvatar from "../../components/UploadAvatar";
 import "./Create.css";
 import Title from "../../components/Title";
-import {pushUser} from "../../actions/users";
+import { pushUser } from "../../actions/users";
 
 const FormItem = Form.Item;
 
@@ -45,7 +46,7 @@ class Create extends Component {
     e.preventDefault();
 
     const
-      { form, pushUser } = this.props,
+      { form, pushUser, history } = this.props,
       { image } = this.state;
 
     form.validateFields((err, values) => {
@@ -57,7 +58,9 @@ class Create extends Component {
           last_name: values.lastName,
           avatar: image,
           id: (new Date()).getTime(),
-        })
+        });
+
+        history.push('/')
       }
     });
   };
@@ -132,10 +135,11 @@ Create.propTypes = {
 };
 
 const CreateWrapper = Form.create()(Create);
+const CreateWrapperRouter = withRouter(CreateWrapper);
 
 export default connect(
   null,
   dispatch => ({
     pushUser: bindActionCreators(pushUser, dispatch),
   }),
-)(CreateWrapper);
+)(CreateWrapperRouter);
