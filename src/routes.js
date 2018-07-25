@@ -9,9 +9,6 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { getUsers } from "./actions/users";
 
-const Bus = () => <h3>Bus</h3>;
-const Cart = () => <h3>Cart</h3>;
-
 const routes = [
   {
     path: "/",
@@ -22,20 +19,6 @@ const routes = [
     path: "/create",
     component: Create
   },
-  // {
-  //   path: "/tacos",
-  //   component: Tacos,
-  //   routes: [
-  //     {
-  //       path: "/tacos/bus",
-  //       component: Bus
-  //     },
-  //     {
-  //       path: "/tacos/cart",
-  //       component: Cart
-  //     }
-  //   ]
-  // }
 ];
 
 const RouteWithSubRoutes = route => (
