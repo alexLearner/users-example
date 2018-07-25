@@ -1,9 +1,8 @@
 import forEach from "lodash/forEach";
 
-const __DEV__ = process.env.NODE_ENV !== 'production';
-
 class API {
-  URL = __DEV__ ? "" : "users-example";
+  // URL = __DEV__ ? "" : "/users-example";
+  URL = "";
 
   fetch = (url, params) => {
     return fetch(this.URL + url, {
@@ -49,11 +48,5 @@ class API {
     return `?${result.join('&')}`;
   };
 }
-
-const NEW_API = new API();
-NEW_API.get(`/json/users.json`).then((response) => {
-  console.log("RESPONSE", response);
-});
-
 
 export default API;

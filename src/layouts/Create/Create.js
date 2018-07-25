@@ -51,8 +51,6 @@ class Create extends Component {
 
     form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
-
         pushUser({
           first_name: values.firstName,
           last_name: values.lastName,

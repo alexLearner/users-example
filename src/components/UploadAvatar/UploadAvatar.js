@@ -53,8 +53,6 @@ class UploadAvatar extends Component {
             loading: false,
           });
 
-          console.log("ON CHANG");
-
           onChange(imageURL)
         }
       );
