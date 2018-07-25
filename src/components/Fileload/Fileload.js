@@ -4,7 +4,7 @@ import isArray from "lodash/isArray"
 import isObject from "lodash/isObject"
 import Icon from "antd/lib/icon";
 import Button from "antd/lib/button";
-import message from 'antd/lib/message';
+import message from "antd/lib/message";
 import "./Fileload.css";
 
 class Fileload extends Component {

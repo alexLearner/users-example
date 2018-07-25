@@ -6,14 +6,12 @@ import Form from 'antd/lib/form';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
 import Icon from 'antd/lib/icon';
-import 'antd/lib/form/style/index.css';
-import 'antd/lib/input/style/index.css';
 import { bindActionCreators } from "redux";
 import UploadAvatar from "../../components/UploadAvatar";
 import { pushUser, editUser } from "../../actions/users";
 import Title from "../../components/Title";
 import "./Create.css";
-import {ROOT} from "../../config";
+import { ROOT } from "../../config";
 
 const FormItem = Form.Item;
 
@@ -103,7 +101,7 @@ class Create extends Component {
     }
 
     return (
-      <Form onSubmit={this.submit} className="create">
+      <div className="create">
         <Title className="create_title">
           {
             !isEdit
@@ -112,69 +110,71 @@ class Create extends Component {
           }
         </Title>
 
-        <FormItem
-          className="create_field"
-          validateStatus={firstNameError ? 'error' : ''}
-          help={firstNameError || ''}
-        >
-          {
-            getFieldDecorator(
-              'firstName',
-              {
-                rules: FIELDS.rules,
-                initialValue: defaultValues.first_name
-              }
-            )(
-              <Input
-                prefix={FIELDS.firstName.prefix}
-                placeholder={FIELDS.firstName.placeholder}
-              />
-            )
-          }
-        </FormItem>
-
-        <FormItem
-          className="create_field"
-          validateStatus={lastNameError ? 'error' : ''}
-          help={lastNameError || ''}
-        >
-          {
-            getFieldDecorator(
-              'lastName',
-              {
-                rules: FIELDS.rules,
-                initialValue: defaultValues.last_name
-              }
-            )(
-              <Input
-                prefix={FIELDS.lastName.prefix}
-                placeholder={FIELDS.lastName.placeholder}
-              />
-            )
-          }
-        </FormItem>
-
-        <FormItem className="create_field">
-          <UploadAvatar
-            onChange={this.uploadImage}
-            defaultImage={defaultValues.avatar}
-          />
-        </FormItem>
-
-        <FormItem>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="create_button"
-            size="large"
-            disabled={hasErrors(getFieldsError())}
+        <Form onSubmit={this.submit} >
+          <FormItem
+            className="create_field"
+            validateStatus={firstNameError ? 'error' : ''}
+            help={firstNameError || ''}
           >
             {
-              isEdit ? "Edit" : "Create new user"
+              getFieldDecorator(
+                'firstName',
+                {
+                  rules: FIELDS.rules,
+                  initialValue: defaultValues.first_name
+                }
+              )(
+                <Input
+                  prefix={FIELDS.firstName.prefix}
+                  placeholder={FIELDS.firstName.placeholder}
+                />
+              )
             }
-          </Button>
-        </FormItem>
-      </Form>
+          </FormItem>
+
+          <FormItem
+            className="create_field"
+            validateStatus={lastNameError ? 'error' : ''}
+            help={lastNameError || ''}
+          >
+            {
+              getFieldDecorator(
+                'lastName',
+                {
+                  rules: FIELDS.rules,
+                  initialValue: defaultValues.last_name
+                }
+              )(
+                <Input
+                  prefix={FIELDS.lastName.prefix}
+                  placeholder={FIELDS.lastName.placeholder}
+                />
+              )
+            }
+          </FormItem>
+
+          <FormItem className="create_field">
+            <UploadAvatar
+              onChange={this.uploadImage}
+              defaultImage={defaultValues.avatar}
+            />
+          </FormItem>
+
+          <FormItem>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="create_button"
+              size="large"
+              disabled={hasErrors(getFieldsError())}
+            >
+              {
+                isEdit ? "Edit" : "Create new user"
+              }
+            </Button>
+          </FormItem>
+        </Form>
+      </div>
     )
   }
 }

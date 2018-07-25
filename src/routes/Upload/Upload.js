@@ -1,14 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
 
 import { setUsers } from "../../actions/users";
 import Title from "../../components/Title";
 import Fileload from "../../components/Fileload";
+import { ROOT } from "../../config";
 import "./Upload.css";
-import {ROOT} from "../../config";
+
+// build json mock example
+let JSON_EXAMPLE = [];
+for (let i = 1; i < 4; i++) {
+  JSON_EXAMPLE.push({
+    id: i,
+    first_name: `first_name_${i}`,
+    last_name: `last_name_${i}`,
+    avatar: ``,
+  })
+}
 
 const UPLOAD_REDIRECT_DELAY = 1500;
 const JSON_FORMAT_STRING = `[
@@ -40,6 +51,17 @@ class Upload extends Component {
         </pre>
 
         <Fileload onChange={this.uploadJSON} />
+
+        <br />
+        <p>As an example, you can use:</p>
+        <pre>
+          <code
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(JSON_EXAMPLE, null, 2)
+            }}
+          />
+        </pre>
+
       </div>
     )
   }

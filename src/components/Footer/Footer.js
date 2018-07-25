@@ -1,7 +1,6 @@
 import React from "react";
-import Icon from 'antd/lib/icon';
-import 'antd/lib/style/index.css';
-import './Footer.css';
+import Icon from "antd/lib/icon";
+import "./Footer.css";
 
 const Footer = () => (
   <footer className="footer">

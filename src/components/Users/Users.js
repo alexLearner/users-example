@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from 'antd/lib/icon';
-import Button from 'antd/lib/button';
+import Icon from "antd/lib/icon";
+import Button from "antd/lib/button";
 import User from "./User";
 import localStore from "../../modules/localStore";
 import "./Users.css"

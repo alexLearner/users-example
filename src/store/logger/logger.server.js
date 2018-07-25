@@ -1,4 +1,4 @@
-import { inspect } from 'util';
+import { inspect } from "util";
 
 function inspectObject(object) {
   return inspect(object, {

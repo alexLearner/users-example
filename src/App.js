@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './antd.css';
-import './App.css';
-import RouterContainer from './routes/index';
+import React, { Component } from "react";
+import "./antd.css";
+import "./App.css";
+import RouterContainer from "./routes/index";
 
 class App extends Component {
   render() {

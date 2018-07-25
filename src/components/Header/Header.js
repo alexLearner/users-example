@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Header.css";
-import {ROOT} from "../../config";
+import { ROOT } from "../../config";
 
 const LINKS = [
   {
