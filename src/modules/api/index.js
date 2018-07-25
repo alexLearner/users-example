@@ -1,8 +1,12 @@
 import forEach from "lodash/forEach";
 
+const __DEV__ = process.env.NODE_ENV !== 'production';
+
 class API {
+  URL = __DEV__ ? "" : "users-example";
+
   fetch = (url, params) => {
-    return fetch(url, {
+    return fetch(this.URL + url, {
       ...params,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -25,25 +29,6 @@ class API {
       })
       .then(res => res.json())
   };
-
-  parseArgs = _arguments => (_arguments ? JSON.parse(_arguments) : '');
-
-  stringifyArgs = _arguments =>
-    _arguments !== '' ? JSON.stringify(_arguments) : _arguments;
-
-  // call = action => {
-  //   if (this.listeners(action)) {
-  //     return this.listeners(action)();
-  //   }
-  // };
-  //
-  // setListener = (name, cb) => {
-  //   this.listeners[name] = cb;
-  // };
-  //
-  // removeListener = name => {
-  //   delete this.listeners[name];
-  // };
 
   params = object => {
     if (!object) return '';
