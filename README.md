@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 UI based on [Ant Design](https://ant.design/)
 
+In all links need use ROOT const (src/config.js) for gh-pages routing;
+
 In the project directory, you can run:
 
 ### `npm start`
