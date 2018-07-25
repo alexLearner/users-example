@@ -10,9 +10,9 @@ import 'antd/lib/form/style/index.css';
 import 'antd/lib/input/style/index.css';
 import { bindActionCreators } from "redux";
 import UploadAvatar from "../../components/UploadAvatar";
-import "./Create.css";
+import { pushUser, editUser } from "../../actions/users";
 import Title from "../../components/Title";
-import { pushUser } from "../../actions/users";
+import "./Create.css";
 
 const FormItem = Form.Item;
 
@@ -35,9 +35,7 @@ function hasErrors(fieldsError) {
 }
 
 class Create extends Component {
-  state = {
-    image: undefined,
-  };
+  state = {};
 
   uploadImage = image =>
     this.setState({ image });
@@ -46,17 +44,33 @@ class Create extends Component {
     e.preventDefault();
 
     const
-      { form, pushUser, history } = this.props,
+      {
+        form,
+        pushUser,
+        editUser,
+        history,
+        isEdit,
+        match: { params: { id } },
+      } = this.props,
       { image } = this.state;
 
     form.validateFields((err, values) => {
       if (!err) {
-        pushUser({
+        const object = {
           first_name: values.firstName,
           last_name: values.lastName,
-          avatar: image,
           id: (new Date()).getTime(),
-        });
+        };
+
+        if (image) {
+          object.avatar = image;
+        }
+
+        if (isEdit) {
+          editUser(id, object)
+        } else {
+          pushUser(object);
+        }
 
         history.push('/')
       }
@@ -64,14 +78,38 @@ class Create extends Component {
   };
 
   render() {
-    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+    const
+      {
+        form,
+        isEdit,
+        data,
+        match: { params: { id } }
+      } = this.props,
+      {
+        getFieldDecorator,
+        getFieldsError,
+        getFieldError,
+        isFieldTouched
+      } = form,
 
-    const firstNameError = isFieldTouched('firstName') && getFieldError('firstName');
-    const lastNameError = isFieldTouched('lastName') && getFieldError('lastName');
+      firstNameError = isFieldTouched('firstName') && getFieldError('firstName'),
+      lastNameError = isFieldTouched('lastName') && getFieldError('lastName');
+
+    let defaultValues = {};
+
+    if (isEdit && data) {
+      defaultValues = data.find(user => user.id === +id);
+    }
 
     return (
       <Form onSubmit={this.submit} className="create">
-        <Title className="create_title">Create new user</Title>
+        <Title className="create_title">
+          {
+            !isEdit
+              ? "Create new user"
+              : `Edit ${defaultValues.first_name}'s profile`
+          }
+        </Title>
 
         <FormItem
           validateStatus={firstNameError ? 'error' : ''}
@@ -80,7 +118,10 @@ class Create extends Component {
           {
             getFieldDecorator(
               'firstName',
-              {rules: FIELDS.rules}
+              {
+                rules: FIELDS.rules,
+                initialValue: defaultValues.first_name
+              }
             )(
               <Input
                 prefix={FIELDS.firstName.prefix}
@@ -97,9 +138,13 @@ class Create extends Component {
           {
             getFieldDecorator(
               'lastName',
-              {rules: FIELDS.rules}
+              {
+                rules: FIELDS.rules,
+                initialValue: defaultValues.last_name
+              }
             )(
               <Input
+                value={defaultValues.last_name}
                 prefix={FIELDS.lastName.prefix}
                 placeholder={FIELDS.lastName.placeholder}
               />
@@ -108,7 +153,10 @@ class Create extends Component {
         </FormItem>
 
         <FormItem>
-          <UploadAvatar onChange={this.uploadImage} />
+          <UploadAvatar
+            onChange={this.uploadImage}
+            defaultImage={defaultValues.avatar}
+          />
         </FormItem>
 
         <FormItem>
@@ -130,14 +178,19 @@ class Create extends Component {
 Create.propTypes = {
   fetched: PropTypes.bool,
   data: PropTypes.array,
+  editUser: PropTypes.func.isRequired,
+  pushUser: PropTypes.func.isRequired,
 };
 
 const CreateWrapper = Form.create()(Create);
 const CreateWrapperRouter = withRouter(CreateWrapper);
 
 export default connect(
-  null,
+  state => ({
+    data: state.users.data,
+  }),
   dispatch => ({
     pushUser: bindActionCreators(pushUser, dispatch),
+    editUser: bindActionCreators(editUser, dispatch),
   }),
 )(CreateWrapperRouter);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import Users from "../../components/Users";
+import Users from "../../components/Users/Users";
 import { removeUser } from "../../actions/users";
 
 class Main extends Component {
